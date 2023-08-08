@@ -11,13 +11,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { useFilmsStore } from '../stores/filmsStore';
 import FilmItem from "./FilmItem.vue";
 
-window.addEventListener("scroll", handleScroll);
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+})
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+})
 
 const router = useRouter();
 const filmsStore = useFilmsStore();
@@ -28,11 +34,6 @@ const {
 } = storeToRefs(filmsStore);
 
 const scrollComponent = ref(null);
-
-let totalPage = 0;
-setTimeout(() => {
-  totalPage = Math.ceil(filmsStore.totalResults / 10);
-}, 1000);
 
 async function getFilmDetails(imdbID, title) {
   await filmsStore.getFilm(imdbID);
@@ -45,9 +46,7 @@ function handleScroll() {
   if (element) {
     if (element.getBoundingClientRect().bottom < window.innerHeight) {
       filmsStore.page++;
-      if (filmsStore.page <= totalPage) {
-        filmsStore.loadNextPage(filmsStore.page);
-      }
+      filmsStore.loadNextPage(filmsStore.page);
     }
   }
 }
@@ -59,13 +58,15 @@ ul {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: stretch;
-  padding: 0;
+  padding: 50px 0 0;
 }
+
 li {
   margin: 20px 0;
   width: 18%;
   list-style-type: none;
 }
+
 button {
   width: 100%;
   border: none;

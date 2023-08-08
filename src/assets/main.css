@@ -14,10 +14,8 @@ a,
   position: relative;
   z-index: 2;
   max-width: 1280px;
-  max-height: 100vh;
   margin: 0 auto;
   padding: 2rem;
-  overflow: auto;
   box-sizing: border-box;
 }
 

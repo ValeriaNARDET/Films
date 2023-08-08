@@ -12,11 +12,12 @@ export const useFilmsStore = defineStore('films', {
 		film: {},
 		keyword: '',
 		page: 1,
-		totalResults: 0,
 	}),
 	actions: {
 		async getFilmList(keyWord) {
 			this.filmList = null;
+			this.film = null;
+			this.page = 1;
 			this.isLoading = true;
 
 			if (!keyWord) {
@@ -38,24 +39,18 @@ export const useFilmsStore = defineStore('films', {
 			try {
 				const res = await axios.get(`${API_URL}?apikey=${API_KEY}&i=${id}`);
 				this.film = res.data;
-				console.log(this.film)
-
 			} catch (err) {
 				console.error(err);
 			}
 			this.isLoading = false;
 		},
 		async loadNextPage(page) {
-			this.isLoading = true;
-			this.loadingMessage = "Please wait";
 			try {
 				const { data } = await axios.get(`${API_URL}?apikey=${API_KEY}&s=${this.keyword}&page=${page}`);
-	
-				data.Search.forEach(film => this.films.push(film));
+				data.Search.forEach(film => this.filmList.push(film));
 			} catch (err) {
 				console.error(err);
 			}
-			this.isLoading = false;
 		} 
 	},
 })

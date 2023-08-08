@@ -22,7 +22,6 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 
 const filmsStore = useFilmsStore();
-console.log(route.params.id)
 filmsStore.getFilm(route.params.id);
 
 const {

@@ -1,12 +1,13 @@
 <template>
-  <div class="">
-    <h2>The best films for you</h2>
+  <h2>The best films for you</h2>
 
-    <FilmList />
-  </div>
+  <FilmSearch />
+
+  <FilmList />
 </template>
 
 <script setup>
+import FilmSearch from "../components/FilmSearch.vue";
 import FilmList from "../components/FilmList.vue";
 </script>
 

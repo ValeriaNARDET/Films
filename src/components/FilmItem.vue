@@ -26,7 +26,7 @@ if (title.value.length > 15) {
 .card {
     position: relative;
     width: 100%;
-    height: 350px;
+    height: 290px;
     perspective: 2500px;
     overflow: hidden;
 }

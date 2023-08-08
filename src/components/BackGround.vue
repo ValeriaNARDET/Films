@@ -6,13 +6,12 @@
 
 <style scoped>
 .html-background {
-    position: absolute;
+    position: fixed;
     overflow: hidden;
     top: 0;
     left: 0;
     right: 0;
     height: 100vh;
-    max-height: 100vh;
     z-index: 0;
     background-image: url(../assets/bg-desktop.jpeg);
     background-position: 50% 50%;

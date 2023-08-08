@@ -1,6 +1,5 @@
 <template>
     <form @submit.prevent="handleSearch">
-        <IconSearch />
         <div class="search-wrapper">
             <h4>Click on search icon and type your keyword</h4>
             <div class="search">
@@ -15,7 +14,6 @@
 import { ref } from "vue";
 import { useRouter } from 'vue-router';
 import { useFilmsStore } from "../stores/filmsStore";
-import IconSearch from "./icons/IconSearch.vue";
 const router = useRouter();
 
 const filmsStore = useFilmsStore();
