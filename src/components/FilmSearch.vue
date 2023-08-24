@@ -24,60 +24,60 @@ function handleSearch() {
         let s = keyword.value.toLowerCase().trim();
         filmsStore.getFilmList(s);
     }
-    router.push({ name: 'films' })
+    router.push({ name: 'films' });
 }
 
 </script>
 
-<style scoped>
-.search-wrapper {
-    margin: 20px;
-}
-
+<style lang="scss" scoped>
 .search {
     display: inline-block;
     position: relative;
     filter: drop-shadow(0 1px #0091c2);
-}
 
-.search:after {
-    content: "";
-    background: white;
-    width: 4px;
-    height: 20px;
-    position: absolute;
-    top: 40px;
-    right: 2px;
-    transform: rotate(135deg);
-}
+    &::after {
+        content: "";
+        background: white;
+        width: 4px;
+        height: 20px;
+        position: absolute;
+        top: 40px;
+        right: 2px;
+        transform: rotate(135deg);
+    }
 
-.search-input {
-    color: white;
-    font-size: 16px;
-    background: transparent;
-    width: 25px;
-    height: 25px;
-    padding: 10px;
-    border: solid 3px white;
-    outline: none;
-    border-radius: 35px;
-    transition: width 0.5s;
-}
+    &-wrapper {
+        margin: 20px;
+    }
 
-.search-input::placeholder {
-    color: #efefef;
-    opacity: 0;
-    transition: opacity 150ms ease-out;
-}
+    &-input {
+        color: white;
+        font-size: 16px;
+        background: transparent;
+        width: 25px;
+        height: 25px;
+        padding: 10px;
+        border: solid 3px white;
+        outline: none;
+        border-radius: 35px;
+        transition: width 0.5s;
 
-.search-input:focus::placeholder {
-    opacity: 1;
-}
+        &::placeholder {
+            color: #efefef;
+            opacity: 0;
+            transition: opacity 150ms ease-out;
+        }
 
-.search-input:focus,
-.search-input:not(:placeholder-shown) {
-    width: 350px;
-    padding: 10px 20px;
+        &:focus::placeholder {
+            opacity: 1;
+        }
+
+        &:focus,
+        &:not(:placeholder-shown) {
+            width: 350px;
+            padding: 10px 20px;
+        }
+    }
 }
 
 @media (min-width: 1024px) {

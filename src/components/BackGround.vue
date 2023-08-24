@@ -1,10 +1,9 @@
 <template>
-    <div 
-        class="html-background">
+    <div class="html-background">
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .html-background {
     position: fixed;
     overflow: hidden;

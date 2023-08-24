@@ -43,7 +43,7 @@
 
     <button class="btn" @click="$router.push({ name: 'films' })">
         Search another film
-      </button>
+    </button>
 </template>
 
 <script setup>
@@ -61,7 +61,7 @@ const {
 } = storeToRefs(filmsStore);
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .fullstory {
     display: flex;
     justify-content: flex-start;
@@ -78,30 +78,35 @@ const {
     width: 200px;
     height: 300px;
     overflow: hidden;
+
+    img {
+        width: 200px;
+        height: 300px;
+    }
+
+    .glance-details {
+        padding-bottom: 10px;
+        overflow: hidden;
+    }
+
+    &-item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
 }
 
-.img-wrapper img {
-    width: 200px;
-    height: 300px;
-}
-
-.glance-details {
-    padding-bottom: 10px;
-    overflow: hidden;
-}
-
-.glance-details-item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.name,
 .value {
+    flex-grow: 1;
     height: 40px;
+    padding-left: 8px;
     border-bottom: 1px solid #393939;
+    font-size: 18px;
     line-height: 50px;
     color: #fafbfc;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .name {
@@ -109,14 +114,5 @@ const {
     min-width: 90px;
     border-right: 1px solid #393939;
     font-size: 14px;
-}
-
-.value {
-    flex-grow: 1;
-    padding-left: 8px;
-    font-size: 18px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 }
 </style>

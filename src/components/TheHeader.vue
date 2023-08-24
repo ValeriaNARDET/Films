@@ -10,18 +10,18 @@ h1 {
   text-align: center;
   font-family: Arial;
   color: #b8c0c1;
-}
 
-h1::before,
-h1::after {
-  display: inline-block;
-  content: "";
-  border-top: 4px solid #b8c0c1;
-  border-bottom: 2px solid #b8c0c1;
-  width: 80px;
-  height: 12px;
-  margin: -20px 30px;
-  transform: translateY(-30px);
+  &::before,
+  &::after {
+    display: inline-block;
+    content: "";
+    border-top: 4px solid #b8c0c1;
+    border-bottom: 2px solid #b8c0c1;
+    width: 80px;
+    height: 12px;
+    margin: -20px 30px;
+    transform: translateY(-30px);
+  }
 }
 
 @media (min-width: 1024px) {

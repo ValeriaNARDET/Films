@@ -37,8 +37,11 @@ const scrollComponent = ref(null);
 
 async function getFilmDetails(imdbID, title) {
   await filmsStore.getFilm(imdbID);
-  let t = title.replaceAll(' ', '_')
-  router.push({ name: 'filmDetails', params: { id: imdbID }, query: { t } })
+
+  if (title) {
+    let t = title.replaceAll(' ', '_')
+    router.push({ name: 'filmDetails', params: { id: imdbID }, query: { t } })
+  }
 }
 
 function handleScroll() {
@@ -52,7 +55,7 @@ function handleScroll() {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 ul {
   display: flex;
   flex-wrap: wrap;
